@@ -1,0 +1,22 @@
+<form action="/customer/update/<%= customer.id %>" method="post" class="form">
+    <div class="col-md-12">
+        <div class="form-group">
+            <label for="name">Name: </label>
+            <input class="form-control" name="name" type="text" value="<%= customer.name %>"/>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-group">
+            <label for="email">Email: </label>
+            <input class="form-control" name="email" type="email" value="<%= customer.email %>"/>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-group">
+            <label for="state">State: </label>
+            <input class="form-control" name="state" type="text" value="<%= customer.state %>"/>
+        </div>
+    </div>
+    <input class="btn btn-success" type="submit" name="update" value="Update"/>
+    <a class="btn btn-default" href="/customer/">Cancel</a>
+</form>
