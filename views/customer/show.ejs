@@ -4,8 +4,38 @@
     <p><strong>State: </strong><%= customer.state %></p>
 </div>
 
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Symbol</th>
+            <th>Number of </th>
+            <th>Action</th>
+        </tr>
+        <% _.each(customer.stocks, function(stock){ %>
+        <tr data-id="<%= stock.id %>" data-model="stock">
+            <td><%= stock.id %></td>
+            <td><%= stock.symbol %></td>
+            <td><%= stock.number_of_shares %></td>
+            <td>
+                <a href="/stock/show/<%= stock.id %>">Show</a>
+                <a href="/stock/edit/<%= stock.id %>">Edit</a>
+                <a href="/stock/destroy/<%= stock.id %>">Delete</a>
+            </td>
+        </tr>
+        <% }) %>
+    </thead>
+</table>
+
 <div class="row">
     <div class="col-md-2">
-        <a class="btn btn-block btn-sm btn-defult" href="/customer/">Back Home</a>
+        <a class="btn btn-block btn-sm btn-default" href="/customer/">Back Home</a>
+    </div>
+    <div class="col-md-2">
+        <form class="form" method="post" action="/stock/new">
+            <input type="hidden" name="owner" value="<%= customer.id %>"/>
+            <input class="btn btn-block btn-sm btn-primary" type="submit" name="create" value="Add Stock"/>
+        </form>
     </div>
 </div>
+

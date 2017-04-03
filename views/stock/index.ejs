@@ -1,0 +1,22 @@
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Symbol</th>
+            <th>Number of </th>
+            <th>Action</th>
+        </tr>
+        <% _.each(stocks, function(stock){ %>
+        <tr data-id="<%= stock.id %>" data-model="stock">
+            <td><%= stock.id %></td>
+            <td><%= stock.symbol %></td>
+            <td><%= stock.number_of_shares %></td>
+            <td>
+                <a href="/stock/show/<%= stock.id %>">Show</a>
+                <a href="/stock/edit/<%= stock.id %>">Edit</a>
+                <a href="/stock/destroy/<%= stock.id %>">Delete</a>
+            </td>
+        </tr>
+        <% }) %>
+    </thead>
+</table>

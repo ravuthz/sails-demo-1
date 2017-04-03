@@ -1,0 +1,16 @@
+<form action="/stock/update/<%= stock.id %>" method="post" class="form">
+    <div class="col-md-12">
+        <div class="form-group">
+            <label for="symbol">Symbol: </label>
+            <input class="form-control" name="symbol" type="text" value="<%= stock.symbol %>"/>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-group">
+            <label for="number_of_shares">Number of Share: </label>
+            <input class="form-control" name="number_of_shares" type="text" value="<%= stock.number_of_shares %>"/>
+        </div>
+    </div>
+    <input class="btn btn-success" type="submit" name="create" value="Update"/>
+    <a class="btn btn-default" href="javascript:history.back();">Cancel</a>
+</form>
