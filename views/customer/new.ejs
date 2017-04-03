@@ -1,4 +1,13 @@
 <form action="/customer/create" method="post" class="form">
+    
+    <% if (flash && flash.err) { %>
+        <ul class="alert alert-success">
+            <% Object.keys(flash.err).forEach(function(error) { %>
+            <li><%- JSON.stringify(flash.err[error]) %></li>
+            <% }) %>
+        </ul>
+    <% } %>
+    
     <div class="col-md-12">
         <div class="form-group">
             <label for="name">Name: </label>

@@ -7,15 +7,23 @@
 
 module.exports = {
 	'new': function(req, res) {
+		res.locals.flash = _.clone(req.session.flash);
 	    res.view();
+	    req.session.flash = {};
 	},
 	'create': function(req, res, next) {
 	    Customer.create(req.params.all(), function customerCreated(err, customer){
 	        if (err) {
-	            return next(err);
+	        	console.log(err);
+	        	req.session.flash = {
+	        		err: err
+	        	}
+	        	return res.redirect('/customer/new/');
+	            // return next(err);
 	        }
 	        
 	        res.json(customer);
+	        req.session.flash = {};
 	       // res.redirect('/customer/show/' + customer.id);
 	    });
 	},
